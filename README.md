@@ -1,8 +1,8 @@
-# Hailee portfolio webpage
+# [Front-End Web-developer Website]
 
 A portfolio web site completely made in html css and js from ground up.
 
-#### Watch it live here - [hailee.netlify.app](https://hailee.netlify.app/)
+#### Watch it live here - [hxrshrathore.me](https://hxrshrathore.me/)
 
 <br>
 
