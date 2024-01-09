@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added viewport meta tag -->
 <title>Hiiiiii</title>
 <!-- Google Fonts Integration -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -18,23 +19,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-}
-
-h1 {
-    font-family: 'Roboto', sans-serif;
-    margin-top: 20px;
-}
-
-p {
-    text-align: center;
-    font-size: 32px;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 20px;
-}
-
-img {
-    margin-top: 20px;
-    width: 25%;
+    margin: 0; /* Added to remove default margin */
 }
 
 /* Dark Mode */
@@ -52,6 +37,45 @@ button {
     transition: all 0.3s ease;
     position: relative;
     margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Added media query for smaller devices */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 24px;
+    }
+    img {
+        width: 50%; /* Adjusted width for smaller screens */
+    }
+    .buttons-container {
+        flex-direction: column; /* Stacking buttons vertically on smaller screens */
+    }
+}
+
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+}
+
+img {
+    margin-top: 20px;
+    width: 25%;
 }
 
 .toggle {
@@ -120,15 +144,15 @@ function toggleTheme() {
 }
 
 function showLove() {
-    alert('I love YOU NITS!🥺');
+    alert('I love YOU NITS!');
 }
 
-
+// Button2 movement on hover with increased movement area
 const button2 = document.getElementById('botao2');
 let left = 35;
 button2.addEventListener('mouseover', function() {
     if(left == 35) {
-        left = 100; 
+        left = 100;  // Increased movement to 50%
     } else {
         left = 35;
     }
