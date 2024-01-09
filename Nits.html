@@ -3,54 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Hiiiiii</title>
+<!-- Google Fonts Integration -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 /* Common Styles */
 body {
-    background-color: white; /* Default light mode background */
-    transition: background-color 0.5s ease;
+    background-color: white;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
 }
 
 p {
     text-align: center;
     font-size: 32px;
-    font-family: Candara, Oswald;
-    color: black; /* Text color for better visibility */
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
 }
 
 img {
-    display: block;
-    margin: 0 auto;
+    margin-top: 20px;
     width: 25%;
 }
 
 /* Dark Mode */
 body.dark-mode {
     background-color: black;
+    color: white;
 }
 
 button {
     border: none;
     padding: 15px 25px;
     font-size: 18px;
-    border-radius: 25px; /* Rounded buttons */
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    margin: 10px;
 }
 
-/* Light Mode Buttons */
-button.light-mode {
-    background-color: black;
-    color: white;
-}
-
-/* Dark Mode Buttons */
-body.dark-mode button {
-    background-color: white;
-    color: black;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); /* Shadow effect */
-}
-
-/* Toggle Switch */
 .toggle {
     position: fixed;
     top: 20px;
@@ -59,12 +62,16 @@ body.dark-mode button {
     width: 60px;
     height: 34px;
     background-color: #ccc;
-    border-radius: 25px;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 2px;
 }
 
 .toggle::after {
     content: "";
-    position: absolute;
     width: 26px;
     height: 26px;
     border-radius: 50%;
@@ -72,18 +79,25 @@ body.dark-mode button {
     transition: transform 0.3s ease;
 }
 
-.toggle.on {
-    background-color: #2196F3; /* Blue color when on */
+.toggle.dark-mode::after {
+    transform: translateX(30px);
 }
 
-.toggle.on::after {
-    transform: translateX(26px);
+.toggle.dark-mode {
+    background-color: #555;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 </style>
 </head>
 <body>
 
+<h1>Hiiiiii</h1>
 <p>Can we go on a date anytime soon?</p>
 <img src="https://media.tenor.com/zGm5acSjHCIAAAAM/cat-begging.gif">
 
@@ -91,26 +105,33 @@ body.dark-mode button {
 <div class="toggle" onclick="toggleTheme()"></div>
 
 <!-- Buttons -->
-<button id="botao1">YES!</button>
-<button id="botao2">NO</button>
+<div class="buttons-container">
+    <button id="botao1" onclick="showLove()">YES!</button>
+    <button id="botao2">NO</button>
+</div>
 
 <script>
 // Toggle Theme Function
 function toggleTheme() {
     const body = document.body;
     body.classList.toggle('dark-mode');
+    const toggle = document.querySelector('.toggle');
+    toggle.classList.toggle('dark-mode');
 }
 
-// Button Click Event for YES!
-document.getElementById('botao1').addEventListener('click', function() {
+function showLove() {
     alert('I love YOU NITS!🥺❤️');
-});
+}
 
-// Animation for NO button
+
 const button2 = document.getElementById('botao2');
-let left = 40;
+let left = 35;
 button2.addEventListener('mouseover', function() {
-    left = (left === 40) ? 44 : 40;
+    if(left == 35) {
+        left = 100; 
+    } else {
+        left = 35;
+    }
     this.style.left = left + '%';
 });
 
