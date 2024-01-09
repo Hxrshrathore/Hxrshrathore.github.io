@@ -1,57 +1,120 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Hiiiiii</title>
 <style>
+/* Common Styles */
+body {
+    background-color: white; /* Default light mode background */
+    transition: background-color 0.5s ease;
+}
+
 p {
-text-align: center;
-font-size: 32px;
-font-family: Candara, Oswald;
+    text-align: center;
+    font-size: 32px;
+    font-family: Candara, Oswald;
+    color: black; /* Text color for better visibility */
 }
+
 img {
-display: block;
-margin: 0 auto;
-width: 25%;
+    display: block;
+    margin: 0 auto;
+    width: 25%;
 }
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: black;
+}
+
+button {
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 25px; /* Rounded buttons */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Light Mode Buttons */
+button.light-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Dark Mode Buttons */
+body.dark-mode button {
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); /* Shadow effect */
+}
+
+/* Toggle Switch */
+.toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 25px;
+}
+
+.toggle::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.toggle.on {
+    background-color: #2196F3; /* Blue color when on */
+}
+
+.toggle.on::after {
+    transform: translateX(26px);
+}
+
 </style>
 </head>
 <body>
+
 <p>Can we go on a date anytime soon?</p>
 <img src="https://media.tenor.com/zGm5acSjHCIAAAAM/cat-begging.gif">
-</body>
-<title>Date?</title>
-<style>
-#botao1 {
-position: fixed;
-top: 70%;
-left: 55%;
-transform: translate(-50%, -50%);
-}
-#botao2 {
-position: absolute;
- left: 39%;
-  top: 68%;
-}
-</style>
-</head>
-<body>
+
+<!-- Toggle Switch -->
+<div class="toggle" onclick="toggleTheme()"></div>
+
+<!-- Buttons -->
 <button id="botao1">YES!</button>
 <button id="botao2">NO</button>
+
 <script>
+// Toggle Theme Function
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+}
+
+// Button Click Event for YES!
+document.getElementById('botao1').addEventListener('click', function() {
+    alert('I love YOU NITS!🥺❤️');
+});
+
+// Animation for NO button
 const button2 = document.getElementById('botao2');
 let left = 40;
 button2.addEventListener('mouseover', function() {
-  if(left == 40){
-    left = 44;
-  }else{
-    left = 40;
-  }
-  this.style.left = left + '%';
+    left = (left === 40) ? 44 : 40;
+    this.style.left = left + '%';
 });
 
 </script>
-<script>document.getElementById('botao1').addEventListener('click', function() {
-alert('I love YOU NITS!🥺❤️');
-});
-</script>
+
 </body>
 </html>
